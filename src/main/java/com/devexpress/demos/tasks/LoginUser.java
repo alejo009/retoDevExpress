@@ -20,6 +20,10 @@ public class LoginUser implements Task {
         this.recaptcha = recaptcha;
     }
 
+    public static LoginUser loginUser(String email,String password,String recaptcha){
+        return Tasks.instrumented(LoginUser.class,email,password,recaptcha);
+    }
+
     @Override
     public <T extends Actor>void performAs(T actor){
         actor.attemptsTo(
@@ -31,9 +35,7 @@ public class LoginUser implements Task {
         );
     }
 
-    public static LoginUser loginUser(String email,String password,String recaptcha){
-        return Tasks.instrumented(LoginUser.class,email,password,recaptcha);
-    }
+
 
 
 
