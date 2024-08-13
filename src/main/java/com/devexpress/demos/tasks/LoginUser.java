@@ -5,7 +5,6 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
-import org.openqa.selenium.JavascriptExecutor;
 
 import static com.devexpress.demos.ui.HomePage.LOGIN_BUTTON_ON_HOMEPAGE;
 import static com.devexpress.demos.ui.LoginPage.*;
@@ -26,7 +25,7 @@ public class LoginUser implements Task {
         actor.attemptsTo(
                 Click.on(LOGIN_BUTTON_ON_HOMEPAGE),
                 Enter.theValue(email).into(FIELD_EMAIL),
-                SetValue.on(FIELD_PASSWORD,password),
+                SetValue.on(FIELD_PASSWORD, password),
                 Enter.theValue(recaptcha).into(FIELD_CAPTCHA_CODE),
                 Click.on(LOGIN_BUTTON_ON_FORM)
         );

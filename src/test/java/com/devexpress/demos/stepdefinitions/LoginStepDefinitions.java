@@ -30,9 +30,8 @@ public class LoginStepDefinitions {
         theActorInTheSpotlight().attemptsTo(LoginUser.loginUser(email, password, recaptcha));
     }
 
-/*    @Then("an error message should be displayed saying {string}")
+    @Then("an error message should be displayed saying {string}")
     public void verifyErrorMessage(String expectedMessage) {
-        theActorInTheSpotlight().should(seeThat(ErrorMessage.incorrectCode(), equalTo("The submitted code is incorrect")));
-    }*/
-
+        theActorInTheSpotlight().should(seeThat(ErrorMessage.incorrectCode(), equalTo(expectedMessage)));
+    }
 }
