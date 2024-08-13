@@ -11,6 +11,6 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/login.feature",
         tags = "",
         snippets = CucumberOptions.SnippetType.CAMELCASE
-)
+  )
 public class LoginRunner {
 }
