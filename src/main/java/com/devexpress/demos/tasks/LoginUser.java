@@ -14,18 +14,18 @@ public class LoginUser implements Task {
     private final String password;
     private final String recaptcha;
 
-    public LoginUser(String email, String password, String recaptcha){
+    public LoginUser(String email, String password, String recaptcha) {
         this.email = email;
         this.password = password;
         this.recaptcha = recaptcha;
     }
 
-    public static LoginUser loginUser(String email,String password,String recaptcha){
-        return Tasks.instrumented(LoginUser.class,email,password,recaptcha);
+    public static LoginUser loginUser(String email, String password, String recaptcha) {
+        return Tasks.instrumented(LoginUser.class, email, password, recaptcha);
     }
 
     @Override
-    public <T extends Actor>void performAs(T actor){
+    public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Click.on(LOGIN_BUTTON_ON_HOMEPAGE),
                 Enter.theValue(email).into(FIELD_EMAIL),
@@ -34,9 +34,6 @@ public class LoginUser implements Task {
                 Click.on(LOGIN_BUTTON_ON_FORM)
         );
     }
-
-
-
 
 
 }

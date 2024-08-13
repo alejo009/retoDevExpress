@@ -19,13 +19,13 @@ public class LoginStepDefinitions {
     }
 
     @When("he enters email {string} and password {string} and invalid reCAPTCHA code {string}")
-    public void heLoginWithInvalidCaptcha(String email, String password, String recaptcha){
+    public void heLoginWithInvalidCaptcha(String email, String password, String recaptcha) {
         theActorInTheSpotlight().attemptsTo(LoginUser.loginUser(email, password, recaptcha));
     }
 
     @Then("an error message should be displayed saying {string}")
-    public void verifyErrorMessage(String expectedMessage){
-        theActorInTheSpotlight().should(seeThat(ErrorMessage.incorrectCode(),equalTo("The submitted code is incorrect")));
+    public void verifyErrorMessage(String expectedMessage) {
+        theActorInTheSpotlight().should(seeThat(ErrorMessage.incorrectCode(), equalTo("The submitted code is incorrect")));
     }
 
 }

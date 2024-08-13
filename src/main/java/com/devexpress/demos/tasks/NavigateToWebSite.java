@@ -7,13 +7,13 @@ import net.serenitybdd.screenplay.actions.Open;
 
 public class NavigateToWebSite implements Task {
     @Override
-    public <T extends Actor> void performAs(T actor){
+    public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Open.url("https://demos.devexpress.com/rwa/dxhotels/")
         );
     }
 
-    public static NavigateToWebSite theUrl(){
+    public static NavigateToWebSite theUrl() {
         return Tasks.instrumented(NavigateToWebSite.class);
     }
 }

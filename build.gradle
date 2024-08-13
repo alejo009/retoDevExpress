@@ -6,7 +6,7 @@ apply plugin: 'net.serenity-bdd.aggregator'
 group = 'com.devexpress.demos'
 version = '1.0-SNAPSHOT'
 
-tasks.withType(JavaCompile){
+tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
@@ -16,19 +16,19 @@ repositories {
     mavenCentral()
 }
 
-buildscript{
-    repositories{
-        maven{
+buildscript {
+    repositories {
+        maven {
             url "https://plugins.gradle.org/m2/"
         }
     }
-    dependencies{
+    dependencies {
         classpath("net.serenity-bdd:serenity-gradle-plugin:3.2.0")
         classpath "io.freefair.gradle:lombok-plugin:8.3"
     }
 }
 
-ext{
+ext {
     serenityVersion = "3.2.1"
     serenityCucumberVersion = "3.2.1"
 }
@@ -48,13 +48,13 @@ dependencies {
 }
 
 test {
-    useJUnitPlatform{
+    useJUnitPlatform {
         excludeTags("disabled")
     }
     systemProperties(project.gradle.startParameter.systemPropertiesArgs)
     testLogging.showStandardStreams = true
     testLogging.exceptionFormat = 'full'
-    outputs.upToDateWhen {false}
+    outputs.upToDateWhen { false }
     finalizedBy('aggregate')
 }
 gradle.startParameter.continueOnFailure = true
