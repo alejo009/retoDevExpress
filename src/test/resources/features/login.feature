@@ -2,10 +2,7 @@
 Feature: Login Operations
   Scenario Outline: Login a user with invalid code recaptcha
     Given that "user" has opened hotel homepage
-    When he clicks on the login button
-    And  he enters email "<email>"
-    And he enters password "<password>"
-    And he enters and invalid reCAPTCHA code "<recaptcha>"
+    When  he enters email "<email>" and password "<password>" and invalid reCAPTCHA code "<recaptcha>"
     Then an error message should be displayed saying "<errorMessage>"
   Examples:
     | email              | password | recaptcha | errorMessage |
