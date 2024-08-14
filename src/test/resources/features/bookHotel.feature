@@ -3,8 +3,7 @@ Feature: Book a hotel
   Scenario Outline: book the cheapest hotel that meets the established filters
     Given that "user" has opened web hotel
     When he selects "<city>" of location
-    And he enters the check-in date as "<daysCheckIn>" days from today
-    And he enters the check-out date as "<daysCheckOut>" days from today
+    And he enters the check-in date as "<daysCheckIn>" and check-out data "<daysCheckOut>" as days from today
     And he selects "<rooms>" rooms
     And he selects "<adults>" adults and <children> children
     And he click on search button
