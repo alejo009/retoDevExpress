@@ -6,10 +6,10 @@ Feature: Book a hotel
     And he enters the check-in date as "<daysCheckIn>" and check-out data "<daysCheckOut>" as days from today
     And he selects rooms "<rooms>"  "<adults>" adults and "<children>" children
     And he filters by a price range greater than 200 USD
-    And he filters by hotels with <starts> starts or more
+    And he filters by hotels with "<stars>" stars or more
     And he applies the selected filters
     And he selects the cheapest available hotel
 
     Examples:
-      | city    | daysCheckIn | daysCheckOut | rooms | adults | children | starts |
-      | Hamburg | 2           | 7            | 2     | 3      | 2        | 3      |
+      | city    | daysCheckIn | daysCheckOut | rooms | adults | children | stars |
+      | Hamburg | 2           | 7            | 2     | 3      | 2        | 4     |

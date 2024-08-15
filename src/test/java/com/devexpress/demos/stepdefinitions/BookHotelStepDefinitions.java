@@ -47,17 +47,26 @@ public class BookHotelStepDefinitions {
     }
 
     @And("he selects rooms {string}  {string} adults and {string} children")
-    public void heEntersRoomAdultsAndChildren(String rooms,String adults,String children){
+    public void heEntersRoomAdultsAndChildren(String rooms, String adults, String children) {
         theActorInTheSpotlight().attemptsTo(
-                SelectRoomsAdultsAndChildrens.selectRoomsAdultsAndChildrens(rooms,adults,children)
+                SelectRoomsAdultsAndChildrens.selectRoomsAdultsAndChildrens(rooms, adults, children)
         );
     }
 
     @And("he filters by a price range greater than 200 USD")
-    public void heFiltersByPriceRangeGreaterThan(){
+    public void heFiltersByPriceRangeGreaterThan() {
         theActorInTheSpotlight().attemptsTo(
                 AdjustPriceRange.to(1)
         );
+    }
 
+    @And("he filters by hotels with {string} stars or more")
+    public void heFiltersByStarsOrMore(String stars){
+        //convert that starts a int
+        int startsConverted = Integer.parseInt(stars);
+        theActorInTheSpotlight().attemptsTo(
+                DeselectAllStartCheckboxes.deselect(),
+                SelectStarRating.forStarts(startsConverted)
+        );
     }
 }
