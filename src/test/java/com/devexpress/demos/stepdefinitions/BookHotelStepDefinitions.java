@@ -1,8 +1,6 @@
 package com.devexpress.demos.stepdefinitions;
 
-import com.devexpress.demos.tasks.SelectDayInCalendar;
-import com.devexpress.demos.tasks.NavigateToWebSite;
-import com.devexpress.demos.tasks.SelectCity;
+import com.devexpress.demos.tasks.*;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -14,7 +12,6 @@ import net.serenitybdd.screenplay.actors.OnlineCast;
 import java.time.LocalDate;
 
 import static com.devexpress.demos.ui.SearchHotel.FIELD_CHECKIN;
-import static com.devexpress.demos.ui.SearchHotel.FIELD_CHECKOUT;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class BookHotelStepDefinitions {
@@ -45,8 +42,23 @@ public class BookHotelStepDefinitions {
         LocalDate checkInDate = LocalDate.now().plusDays(checkInDaysInt);
         LocalDate checkOutDate = LocalDate.now().plusDays(checkOutDaysInt);
         theActorInTheSpotlight().attemptsTo(
-                SelectDayInCalendar.on(checkInDate, FIELD_CHECKIN),
-                SelectDayInCalendar.on(checkOutDate,FIELD_CHECKOUT)
+                SelectDayInCalendar.on(checkInDate, FIELD_CHECKIN)
         );
+    }
+
+    @And("he selects rooms {string}  {string} adults and {string} children")
+    public void heEntersRoomAdultsAndChildren(String rooms,String adults,String children){
+        theActorInTheSpotlight().attemptsTo(
+                SelectRoomsAdultsAndChildrens.selectRoomsAdultsAndChildrens(rooms,adults,children)
+        );
+    }
+
+    @And("he filters by a price range greater than 200 USD")
+    public void heFiltersByPriceRangeGreaterThan(String offSet){
+        int convertedOffSet = Integer.parseInt(offSet);
+        theActorInTheSpotlight().attemptsTo(
+                AdjustPriceRange.to(convertedOffSet)
+        );
+
     }
 }
