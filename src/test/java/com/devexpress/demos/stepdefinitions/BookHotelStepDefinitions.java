@@ -54,10 +54,9 @@ public class BookHotelStepDefinitions {
     }
 
     @And("he filters by a price range greater than 200 USD")
-    public void heFiltersByPriceRangeGreaterThan(String offSet){
-        int convertedOffSet = Integer.parseInt(offSet);
+    public void heFiltersByPriceRangeGreaterThan(){
         theActorInTheSpotlight().attemptsTo(
-                AdjustPriceRange.to(convertedOffSet)
+                AdjustPriceRange.to(1)
         );
 
     }

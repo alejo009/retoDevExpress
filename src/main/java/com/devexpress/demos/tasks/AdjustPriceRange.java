@@ -4,7 +4,9 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
+import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.targets.Target;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -19,14 +21,15 @@ public class AdjustPriceRange implements Task {
 
     @Override
     public <T extends Actor>void performAs(T actor){
-        Actions actions = new Actions(BrowseTheWeb.as(actor).getDriver());
-        WebElement slider = Target.the("Price range slider")
-                .locatedBy("//a[@id='MainContentPlaceHolder_FilterFormLayout_NightlyRateTrackBar_MD']//a[@id='MainContentPlaceHolder_FilterFormLayout_NightlyRateTrackBar_MD'] ")
-                .resolveFor(actor);
+        WebDriver driver = BrowseTheWeb.as(actor).getDriver();
+        WebElement slider = PRICE_RANGE.resolveFor(actor);
+
+        Actions actions = new Actions(driver);
         actions.clickAndHold(slider)
-                .moveByOffset(offset,0)
+                .moveByOffset(offset, 0)  // Mueve el slider horizontalmente
                 .release()
-                .perform();
+                .perform();  // Ejecuta la acción
+
     }
 
     public static AdjustPriceRange to(int offset){
