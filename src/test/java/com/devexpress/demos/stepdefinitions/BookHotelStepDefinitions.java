@@ -1,5 +1,6 @@
 package com.devexpress.demos.stepdefinitions;
 
+import com.devexpress.demos.interactions.AppliedFilters;
 import com.devexpress.demos.tasks.*;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -61,12 +62,19 @@ public class BookHotelStepDefinitions {
     }
 
     @And("he filters by hotels with {string} stars or more")
-    public void heFiltersByStarsOrMore(String stars){
+    public void heFiltersByStarsOrMore(String stars) {
         //convert that starts a int
         int startsConverted = Integer.parseInt(stars);
         theActorInTheSpotlight().attemptsTo(
                 DeselectAllStartCheckboxes.deselect(),
                 SelectStarRating.forStarts(startsConverted)
+        );
+    }
+
+    @And("he applies the selected filters")
+    public void heAppliedFilters() {
+        theActorInTheSpotlight().attemptsTo(
+                AppliedFilters.appliedFiltersToHotel()
         );
     }
 }
