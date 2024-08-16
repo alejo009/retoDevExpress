@@ -15,7 +15,6 @@ public class SelectDayInCalendar implements Task {
     private final LocalDate date;
     private final Target calendarField;
 
-
     public SelectDayInCalendar(LocalDate date, Target calendarField) {
         this.date = date;
         this.calendarField = calendarField;

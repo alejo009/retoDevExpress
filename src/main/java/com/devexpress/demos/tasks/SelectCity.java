@@ -12,12 +12,12 @@ import static com.devexpress.demos.ui.SearchHotel.FIELD_LOCATION;
 public class SelectCity implements Task {
     private final String city;
 
-    public SelectCity(String city){
+    public SelectCity(String city) {
         this.city = city;
     }
 
     @Override
-    public <T extends Actor> void performAs(T actor){
+    public <T extends Actor> void performAs(T actor) {
         Target cityCell = SearchHotel.CITY_CELL.of(city);
 
         actor.attemptsTo(
@@ -26,8 +26,7 @@ public class SelectCity implements Task {
         );
     }
 
-    public static SelectCity with(String city){
+    public static SelectCity with(String city) {
         return Tasks.instrumented(SelectCity.class, city);
     }
-
 }

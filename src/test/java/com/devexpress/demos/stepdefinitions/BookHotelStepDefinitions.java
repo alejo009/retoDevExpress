@@ -33,15 +33,13 @@ public class BookHotelStepDefinitions {
         );
     }
 
-    @And("he enters the check-in date as {string} and check-out data {string} as days from today")
-    public void heEntersCheckInAndCheckOut(String checkInDay, String checkOutDays) {
-        // Convertir valores
+    @And("he enters the check-in date as {string} as days from today")
+    public void heEntersCheckInAndCheckOut(String checkInDay) {
+        // Convert the valors
         int checkInDaysInt = Integer.parseInt(checkInDay);
-        int checkOutDaysInt = Integer.parseInt(checkOutDays);
 
-        // calcula las fechas
+        // calculate the dates
         LocalDate checkInDate = LocalDate.now().plusDays(checkInDaysInt);
-        LocalDate checkOutDate = LocalDate.now().plusDays(checkOutDaysInt);
         theActorInTheSpotlight().attemptsTo(
                 SelectDayInCalendar.on(checkInDate, FIELD_CHECKIN)
         );
@@ -54,16 +52,18 @@ public class BookHotelStepDefinitions {
         );
     }
 
-    @And("he filters by a price range greater than 200 USD")
-    public void heFiltersByPriceRangeGreaterThan() {
+    @And("he filters by a price range greater than 200 USD {string}")
+    public void heFiltersByPriceRangeGreaterThan(String offset) {
+        //convert the offset to int
+        int offsetConverted = Integer.parseInt(offset);
         theActorInTheSpotlight().attemptsTo(
-                AdjustPriceRange.to(1)
+                AdjustPriceRange.to(offsetConverted)
         );
     }
 
     @And("he filters by hotels with {string} stars or more")
     public void heFiltersByStarsOrMore(String stars) {
-        //convert that starts a int
+        //convert that starts to int
         int startsConverted = Integer.parseInt(stars);
         theActorInTheSpotlight().attemptsTo(
                 DeselectAllStartCheckboxes.deselect(),
@@ -75,6 +75,13 @@ public class BookHotelStepDefinitions {
     public void heAppliedFilters() {
         theActorInTheSpotlight().attemptsTo(
                 AppliedFilters.appliedFiltersToHotel()
+        );
+    }
+
+    @And("he select the cheapest available hotel")
+    public void heSelectTheCheapestAvailableHotel(){
+        theActorInTheSpotlight().attemptsTo(
+                SelectCheapestHotel.select()
         );
     }
 }

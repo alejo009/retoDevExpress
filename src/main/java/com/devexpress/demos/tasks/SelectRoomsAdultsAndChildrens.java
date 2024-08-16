@@ -10,12 +10,10 @@ import org.openqa.selenium.Keys;
 
 import static com.devexpress.demos.ui.SearchHotel.*;
 
-
 public class SelectRoomsAdultsAndChildrens implements Task {
     private final String rooms;
     private final String adults;
     private final String children;
-
 
     public SelectRoomsAdultsAndChildrens(String rooms, String adults, String children) {
         this.rooms = rooms;
@@ -32,12 +30,12 @@ public class SelectRoomsAdultsAndChildrens implements Task {
                 Click.on(roomOptions),
                 //actions field adults
                 Click.on(FIELD_ADULTS),
-                Enter.theValue(Keys.CONTROL+"a").into(FIELD_ADULTS),
+                Enter.theValue(Keys.CONTROL + "a").into(FIELD_ADULTS),
                 Enter.theValue(Keys.BACK_SPACE).into(FIELD_ADULTS),// Elimina el texto seleccionado
                 Enter.theValue(adults).into(FIELD_ADULTS),
-                //actions fiield children
+                //actions field children
                 Click.on(FIELD_CHILDRENS),
-                Enter.theValue(Keys.CONTROL+"a").into(FIELD_CHILDRENS),
+                Enter.theValue(Keys.CONTROL + "a").into(FIELD_CHILDRENS),
                 Enter.theValue(Keys.BACK_SPACE).into(FIELD_CHILDRENS),  // Elimina el texto seleccionado
                 Enter.theValue(children).into(FIELD_CHILDRENS),
                 Click.on(BUTTON_SEARCH_HOTEL)

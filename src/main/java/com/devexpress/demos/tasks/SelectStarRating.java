@@ -36,7 +36,7 @@ public class SelectStarRating implements Task {
                 throw new IllegalArgumentException("invalid star rating" + stars);
         }
 
-        //verifica si ya esta seleccionado
+        //check if it is already selected
         WebElement checkBoxElement = starCheckbox.resolveFor(actor);
         String classAttribute = checkBoxElement.getAttribute("class");
 
