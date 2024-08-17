@@ -13,7 +13,7 @@ Login successful:
 
 # IMPORTANT
 
-# technical limitations:
+# Technical limitations:
 
 When implementing automated login tests, I encountered a limitation related to the presence of a CAPTCHA on the authentication screen. CAPTCHAs are specifically designed to prevent automated scripts from interacting with them, as their main purpose is to differentiate between human users and bots.
 
@@ -29,12 +29,12 @@ While implementing the automated tests for the hotel booking scenario, I success
 Since the authentication flow includes a CAPTCHA, it was not possible to automate the entire login process, which prevented us from continuing with the reservation and validating the reservation confirmation message. This CAPTCHA is a security measure designed to prevent automated interaction with the system, limiting the ability to perform E2E testing in its entirety without additional interventions.
 
 
-How was it addressed?
+# How was it addressed?
 
 First I did exploratory tests to get to know the platform and then I thought about the logic of how I could automate the scenario where the user writes an incorrect captcha code, I first thought about how to write the feature well and then see what locators I needed and then write the tasks
 
 
-defects found:
+# defects found:
 
 Error messages do not appear
 
