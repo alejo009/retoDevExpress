@@ -52,6 +52,8 @@ Steo 4: select the cheapest hotel
 
 ![image](https://github.com/user-attachments/assets/89498aa6-f4e5-45c0-937b-9cdc73dfb986)
 
+Note: I could not validate the successful reservation message, since I could not find it anywhere on the web
+
 
 
 ## Tabla de Contenidos
