@@ -34,7 +34,7 @@ Since the authentication flow includes a CAPTCHA, it was not possible to automat
 First I did exploratory tests to get to know the platform and then I thought about the logic of how I could automate the scenario where the user writes an incorrect captcha code, I first thought about how to write the feature well and then see what locators I needed and then write the tasks
 
 
-# defects found:
+# Defects found:
 
 Error messages do not appear
 
@@ -43,6 +43,7 @@ Error messages do not appear
 You can log in to Gmail that had never been created on the page
 
 Before logging in
+
 ![image](https://github.com/user-attachments/assets/8bae75b0-c553-4df9-9049-68dca6fe66ef)
 
 After logging in
