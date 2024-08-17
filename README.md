@@ -54,6 +54,49 @@ Steo 4: select the cheapest hotel
 
 
 
+## Tabla de Contenidos
+- [Introduction](#Introduction)
+- [Prerequisites to install the project](#Prerequisites-to-install-the-project)
+- [How to run the tests locally](#How-to-run-the-tests-locally)
+
+
+# Introduction
+
+This project is about a hotel booking website called DX HOTELS, the serenity bdd testing framework was used with the screenplay design pattern, cucumber to document our tests applying BDD and gradle for our dependency manager
+
+The url of the project that was automated was the following:
+
+
+## URL:
+https://demos.devexpress.com/rwa/dxhotels/Default.aspx
+
+## Prerequisites to install the project
+
+
+The project is developed in Java with Gradle so it will install the following software:
+
+
+## JDK 17, download link:
+
+
+https://download.oracle.com/java/17/archive/jdk-17_windows-x64_bin.zip
+
+## Gradle:, download link:
+
+https://gradle.org/
+
+
+## Your favorite IDE, including :
+Intellij IDEA: To run features or scenarios tests it will configure:
+
+
+## How to run the tests locally?
+
+To run the tests, enter your preferred ide, I highly recommend IntelliJ IDEA, go to your terminal and enter the following command:
+
+./gradlew clean test
+
+
 
 
 
