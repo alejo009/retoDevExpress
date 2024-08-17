@@ -9,13 +9,29 @@ Login with incorrect captcha code
 
 ![image](https://github.com/user-attachments/assets/2cf09eb9-d32e-4101-81ac-bd3e664a42ee)
 
+Login successful:
+
+# IMPORTANT
+
+# technical limitations:
+
+When implementing automated login tests, I encountered a limitation related to the presence of a CAPTCHA on the authentication screen. CAPTCHAs are specifically designed to prevent automated scripts from interacting with them, as their main purpose is to differentiate between human users and bots.
+
+Since the CAPTCHA used in this authentication flow generates a dynamic and unique image with each login attempt, it is not possible to reliably automate the resolution of this challenge without introducing additional tools or methods that may compromise the security of the system, such as the use of External. Services to solve CAPTCHA.
+
+For this reason, I decided not to include this step in the automated tests and focused on the other aspects of the authentication process. For a future implementation, a possible alternative would be to request a test environment that allows you to temporarily disable the CAPTCHA or use an alternative authentication method that does not involve this type of verification.
+
+
+# Observations about hotel reservation:
+
+While implementing the automated tests for the hotel booking scenario, I successfully advanced to the penultimate step, which was to select the cheapest hotel available. However, upon completing this step, no reservation confirmation message was displayed in the user flow. The full booking action, including message confirmation, may only be available once the user has successfully logged in.
+
+Since the authentication flow includes a CAPTCHA, it was not possible to automate the entire login process, which prevented us from continuing with the reservation and validating the reservation confirmation message. This CAPTCHA is a security measure designed to prevent automated interaction with the system, limiting the ability to perform E2E testing in its entirety without additional interventions.
+
 
 How was it addressed?
 
 First I did exploratory tests to get to know the platform and then I thought about the logic of how I could automate the scenario where the user writes an incorrect captcha code, I first thought about how to write the feature well and then see what locators I needed and then write the tasks
-
-
-The other login scenario could not be automated since it has a captcha that cannot be automated
 
 
 defects found:
@@ -51,8 +67,6 @@ Steo 4: select the cheapest hotel
 
 
 ![image](https://github.com/user-attachments/assets/89498aa6-f4e5-45c0-937b-9cdc73dfb986)
-
-Note: I could not validate the successful reservation message, since I could not find it anywhere on the web
 
 
 
